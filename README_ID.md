@@ -20,3 +20,10 @@ Buat akun administrator melalui Authentication → Users (email/password). Backe
 
 ## Keamanan
 Jangan pernah menaruh service role key di frontend atau GitHub. Kode lisensi harus di-hash di server, dan operasi admin hanya boleh dijalankan setelah autentikasi admin terverifikasi. Paket ini adalah starter UI, belum sistem produksi siap jual.
+
+## Pembaruan panel
+- Kode lisensi yang ditampilkan sekarang diambil dari respons Edge Function (server), bukan dibuat lokal di browser.
+- Panel menampilkan jumlah perangkat aktif, detail hash perangkat, waktu aktivasi, dan terakhir aktif.
+- Tersedia masa aktif 30, 90, 180 hari, 1/2/3/5 tahun, atau tanpa batas.
+- Kode lisensi hanya ditampilkan saat berhasil dibuat. Simpan/copy saat itu karena backend hanya menyimpan hash.
+- Panel tetap memerlukan Edge Function dengan aksi `admin_create`, `admin_list`, `admin_revoke` serta secret `ADMIN_EMAIL`.
